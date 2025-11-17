@@ -1,0 +1,16 @@
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/bin/Debug/net8.0/ElearningPlatform.Infrastructure.deps.json
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/bin/Debug/net8.0/ElearningPlatform.Infrastructure.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/bin/Debug/net8.0/ElearningPlatform.Infrastructure.pdb
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/bin/Debug/net8.0/ElearningPlatform.Core.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/bin/Debug/net8.0/ElearningPlatform.Core.pdb
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.csproj.AssemblyReference.cache
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.AssemblyInfoInputs.cache
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.AssemblyInfo.cs
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.csproj.CoreCompileInputs.cache
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.sourcelink.json
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/Elearnin.62E5D23D.Up2Date
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/refint/ElearningPlatform.Infrastructure.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ElearningPlatform.Infrastructure.pdb
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Infrastructure/obj/Debug/net8.0/ref/ElearningPlatform.Infrastructure.dll

@@ -1,0 +1,12 @@
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/bin/Debug/net8.0/ElearningPlatform.Core.deps.json
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/bin/Debug/net8.0/ElearningPlatform.Core.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/bin/Debug/net8.0/ElearningPlatform.Core.pdb
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.AssemblyInfoInputs.cache
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.AssemblyInfo.cs
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.csproj.CoreCompileInputs.cache
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.sourcelink.json
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/refint/ElearningPlatform.Core.dll
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ElearningPlatform.Core.pdb
+/home/thuannp4/development/e-learning-platform/backend/ElearningPlatform.Core/obj/Debug/net8.0/ref/ElearningPlatform.Core.dll

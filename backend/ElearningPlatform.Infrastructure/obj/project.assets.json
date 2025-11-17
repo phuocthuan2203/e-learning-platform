@@ -810,6 +810,7 @@
     "net8.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "ElearningPlatform.Core >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 9.0.0",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0"
     ]
   },
@@ -862,6 +863,10 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[9.0.0, )"
           },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
