@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Xy4JWcgwJeQRYXYxm2MwlCEl24xtNmcP2laAueUtgEg=",
+  "Source": "ElearningPlatform.API",
+  "BasePath": "_content/ElearningPlatform.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
