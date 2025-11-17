@@ -51,24 +51,24 @@ backend/*_CodeRush*/
 # ==========================
 # Angular Frontend
 # ==========================
-frontend/node_modules/
-frontend/dist/
-frontend/tmp/
-frontend/.angular/
-frontend/.nx/
-frontend/.env
-frontend/.env.*
-frontend/*.code-workspace
-frontend/.idea/
+elearning-platform-frontend/node_modules/
+elearning-platform-frontend/dist/
+elearning-platform-frontend/tmp/
+elearning-platform-frontend/.angular/
+elearning-platform-frontend/.nx/
+elearning-platform-frontend/.env
+elearning-platform-frontend/.env.*
+elearning-platform-frontend/*.code-workspace
+elearning-platform-frontend/.idea/
 # Mac/Linux temp files
-frontend/.DS_Store
-frontend/Thumbs.db
+elearning-platform-frontend/.DS_Store
+elearning-platform-frontend/Thumbs.db
 # VS Code settings
-frontend/.vscode/
+elearning-platform-frontend/.vscode/
 # Local coverage reports
-frontend/coverage/
+elearning-platform-frontend/coverage/
 # Angular Environment
-frontend/src/environments/environment.*.ts
+elearning-platform-frontend/src/environments/environment.*.ts
 
 # ==========================
 # Database and Misc
