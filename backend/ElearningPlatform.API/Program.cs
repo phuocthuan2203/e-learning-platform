@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using ElearningPlatform.Infrastructure;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using ElearningPlatform.Core;
+using ElearningPlatform.Core.Interfaces;
+using ElearningPlatform.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,8 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 // Configure and register the DbContext for Entity Framework Core
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -47,5 +51,7 @@ app.UseHttpsRedirection();
 
 // Enable the CORS policy
 app.UseCors("AllowAngularApp");
+
+app.MapControllers();
 
 app.Run();
