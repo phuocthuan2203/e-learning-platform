@@ -1,20 +1,103 @@
-# Backend (.NET build folders)
+# ==========================
+# Global Ignores
+# ==========================
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.env
+.env.*
+
+# ==========================
+# ASP.NET Core / .NET 8+ Backend
+# ==========================
 backend/bin/
 backend/obj/
 backend/.vs/
+backend/.user
+backend/.suo
+backend/.dbml
+backend/.dbmdl
+backend/*.db
+backend/Migrations/
 backend/appsettings.Development.json
+backend/appsettings.Local.json
+backend/appsettings.*.json.local
+backend/ELearningPlatform.API.csproj.user
+backend/ELearningPlatform.API.csproj.DotSettings
+backend/Properties/launchSettings.json
+# User secrets for development
+backend/*.secrets.json
 
-# Frontend (Angular build and dependencies)
+# Visual Studio Code Workspace
+backend/*.code-workspace
+
+# Rider/JetBrains
+backend/.idea/
+
+# DotCover is code coverage tool
+backend/*.dotCover
+
+# Others
+backend/TestResults/
+backend/.ncrunch*/
+backend/*_ReSharper*/
+backend/*_CodeRush*/
+
+# ==========================
+# Angular Frontend
+# ==========================
 frontend/node_modules/
 frontend/dist/
+frontend/tmp/
 frontend/.angular/
+frontend/.nx/
+frontend/.env
+frontend/.env.*
+frontend/*.code-workspace
+frontend/.idea/
+# Mac/Linux temp files
+frontend/.DS_Store
+frontend/Thumbs.db
+# VS Code settings
+frontend/.vscode/
+# Local coverage reports
+frontend/coverage/
+# Angular Environment
+frontend/src/environments/environment.*.ts
 
-# IDE and OS files
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# General logs and env
+# ==========================
+# Database and Misc
+# ==========================
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.sql
 *.log
-.env
+# MySQL dump/backup files
+*.sql.gz
+*.tar.gz
+
+# ==========================
+# Build and Release
+# ==========================
+scripts/*.out
+scripts/*.exe
+scripts/*.dll
+
+# ==========================
+# Documentation and Generated
+# ==========================
+docs/.DS_Store
+docs/api/.DS_Store
+docs/architecture/.DS_Store
+docs/design/.DS_Store
+
+# Ignore everything in ai-docs/
+ai-docs/
+
