@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { RegisterRequest, LoginRequest, AuthResponse } from '../models/auth.models';
+import { UserProfile, UpdateProfileRequest } from '../models/auth.models';
 
 @Injectable({
   providedIn: 'root',
@@ -58,5 +59,13 @@ export class AuthService {
   // Add this test method
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/test/users`);
+  }
+
+  getProfile(): Observable<UserProfile> {
+    return this.http.get<UserProfile>(`${this.apiUrl}/auth/profile`);
+  }
+
+  updateProfile(data: UpdateProfileRequest): Observable<UserProfile> {
+    return this.http.put<UserProfile>(`${this.apiUrl}/auth/profile`, data);
   }
 }
