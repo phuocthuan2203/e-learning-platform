@@ -5,6 +5,9 @@ using ElearningPlatform.Core;
 using ElearningPlatform.Core.Interfaces;
 using ElearningPlatform.Infrastructure.Repositories;
 using ElearningPlatform.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +40,29 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Bind JwtSettings from appsettings.json to the JwtSettings class
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
+// Add Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+    if (jwtSettings == null) throw new InvalidOperationException("JwtSettings is not configured.");
+
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey))
+    };
+});
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -53,6 +79,9 @@ app.UseHttpsRedirection();
 
 // Enable the CORS policy
 app.UseCors("AllowAngularApp");
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

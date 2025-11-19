@@ -16,14 +16,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; /
 import { AuthRoutingModule } from './auth-routing-module';
 import { Register } from './register/register';
 import { Login } from './login/login';
-import { Profile } from './profile/profile';
+import { ProfileComponent } from './profile/profile';
 
 
 @NgModule({
   declarations: [
     Register,
     Login,
-    Profile
+    ProfileComponent
   ],
   imports: [
     CommonModule,

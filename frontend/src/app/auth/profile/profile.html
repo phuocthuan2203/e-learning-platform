@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="auth-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>My Profile ({{ role }})</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isLoading" class="loading-shade">Loading...</div>
+      
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+        
+        <!-- Email (Read Only) -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <!-- Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="profileForm.get('name')?.hasError('required')">Name is required</mat-error>
+        </mat-form-field>
+
+        <!-- Bio -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Bio</mat-label>
+          <textarea matInput formControlName="bio" rows="3"></textarea>
+          <mat-hint align="end">{{profileForm.get('bio')?.value?.length || 0}}/500</mat-hint>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit" [disabled]="profileForm.invalid || profileForm.pristine" class="full-width">
+          Save Changes
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

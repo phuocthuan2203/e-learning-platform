@@ -17,3 +17,16 @@ export interface AuthResponse {
   name: string;
   expiresAt: string;
 }
+
+export interface UserProfile {
+  userId: number;
+  name: string;
+  email: string;
+  bio?: string;
+  role: string;
+}
+
+export interface UpdateProfileRequest {
+  name: string;
+  bio?: string;
+}

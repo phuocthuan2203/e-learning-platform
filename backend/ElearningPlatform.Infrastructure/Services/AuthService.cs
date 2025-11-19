@@ -46,7 +46,8 @@ public class AuthService : IAuthService
                 PasswordHash = passwordHash,
                 CreatedDate = DateTime.UtcNow
             };
-        } else if (dto.Role == "Instructor")
+        }
+        else if (dto.Role == "Instructor")
         {
             user = new Instructor
             {
@@ -85,7 +86,7 @@ public class AuthService : IAuthService
         // 1. check account lockout
         if (user.IsLocked)
         {
-            if(user.LockoutEnd > DateTime.UtcNow)
+            if (user.LockoutEnd > DateTime.UtcNow)
             {
                 throw new AccountLockedException("Account is locked. Try again later.");
             }
@@ -129,7 +130,7 @@ public class AuthService : IAuthService
             Token = GenerateJwtToken(user),
             ExpiresAt = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiryMinutes)
         };
-        
+
     }
 
     private string GenerateJwtToken(User user)
@@ -157,5 +158,40 @@ public class AuthService : IAuthService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
 
+    }
+    public async Task<UserProfileDto> GetUserProfileAsync(int userId)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        if (user == null) throw new KeyNotFoundException("User not found");
+
+        return MapToDto(user);
+    }
+
+    public async Task<UserProfileDto> UpdateUserProfileAsync(int userId, UpdateProfileDto dto)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        if (user == null) throw new KeyNotFoundException("User not found");
+
+        // Update fields
+        user.Name = dto.Name;
+        user.Bio = dto.Bio;
+        user.LastModifiedDate = DateTime.UtcNow;
+
+        await _userRepository.UpdateAsync(user);
+
+        return MapToDto(user);
+    }
+
+    // Helper method to avoid code duplication
+    private UserProfileDto MapToDto(User user)
+    {
+        return new UserProfileDto
+        {
+            UserId = user.UserId,
+            Name = user.Name,
+            Email = user.Email,
+            Bio = user.Bio,
+            Role = user is Student ? "Student" : "Instructor"
+        };
     }
 }

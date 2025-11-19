@@ -3,6 +3,9 @@ using ElearningPlatform.Core.Exceptions;
 using ElearningPlatform.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+
 namespace ElearningPlatform.API.Controllers;
 
 [ApiController]
@@ -46,9 +49,38 @@ public class AuthController : ControllerBase
         {
             return Unauthorized(new { message = "Invalid email or password." });
         }
-        catch  (AccountLockedException ex)
+        catch (AccountLockedException ex)
         {
             return StatusCode(403, new { message = ex.Message });
         }
+    }
+
+    [HttpGet("profile")]
+    [Authorize] // <--- Protects this endpoint
+    public async Task<ActionResult<UserProfileDto>> GetProfile()
+    {
+        // Extract UserId from the "sub" claim in the JWT
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? User.FindFirst("sub");
+        if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+        {
+            return Unauthorized();
+        }
+
+        var profile = await _authService.GetUserProfileAsync(userId);
+        return Ok(profile);
+    }
+
+    [HttpPut("profile")]
+    [Authorize] // <--- Protects this endpoint
+    public async Task<ActionResult<UserProfileDto>> UpdateProfile([FromBody] UpdateProfileDto dto)
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? User.FindFirst("sub");
+        if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+        {
+            return Unauthorized();
+        }
+
+        var updatedProfile = await _authService.UpdateUserProfileAsync(userId, dto);
+        return Ok(updatedProfile);
     }
 }

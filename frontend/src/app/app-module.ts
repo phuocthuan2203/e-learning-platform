@@ -5,6 +5,9 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app';
 
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './core/interceptors/auth-interceptor';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +18,8 @@ import { AppComponent } from './app';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi()),
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
