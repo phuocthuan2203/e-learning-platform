@@ -4,6 +4,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using ElearningPlatform.Core;
 using ElearningPlatform.Core.Interfaces;
 using ElearningPlatform.Infrastructure.Repositories;
+using ElearningPlatform.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Configure and register the DbContext for Entity Framework Core
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
