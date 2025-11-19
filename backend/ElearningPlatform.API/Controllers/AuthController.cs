@@ -33,4 +33,22 @@ public class AuthController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
+
+    [HttpPost("login")]
+    public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginRequestDto dto)
+    {
+        try
+        {
+            var result = await _authService.LoginAsync(dto);
+            return Ok(result);
+        }
+        catch (InvalidCredentialsException)
+        {
+            return Unauthorized(new { message = "Invalid email or password." });
+        }
+        catch  (AccountLockedException ex)
+        {
+            return StatusCode(403, new { message = ex.Message });
+        }
+    }
 }
