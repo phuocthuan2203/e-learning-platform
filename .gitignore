@@ -15,60 +15,73 @@ Thumbs.db
 # ==========================
 # ASP.NET Core / .NET 8+ Backend
 # ==========================
-backend/bin/
-backend/obj/
+# Build output
+**/bin/
+**/obj/
 backend/.vs/
-backend/.user
-backend/.suo
-backend/.dbml
-backend/.dbmdl
-backend/*.db
-backend/Migrations/
-backend/appsettings.Development.json
-backend/appsettings.Local.json
-backend/appsettings.*.json.local
-backend/ELearningPlatform.API.csproj.user
-backend/ELearningPlatform.API.csproj.DotSettings
-backend/Properties/launchSettings.json
-# User secrets for development
-backend/*.secrets.json
+backend/**/.vs/
 
-# Visual Studio Code Workspace
-backend/*.code-workspace
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# Rider/JetBrains
+# Database files
+*.db
+*.dbml
+*.dbmdl
+
+# Migrations (uncomment if you want to ignore migrations)
+# backend/**/Migrations/
+
+# Configuration files with sensitive data
+backend/**/appsettings.Development.json
+backend/**/appsettings.Local.json
+backend/**/appsettings.*.json.local
+backend/**/*.secrets.json
+
+# JetBrains Rider
 backend/.idea/
+**/.idea/
 
-# DotCover is code coverage tool
-backend/*.dotCover
+# Visual Studio Code
+**/.vscode/
+*.code-workspace
 
-# Others
-backend/TestResults/
-backend/.ncrunch*/
-backend/*_ReSharper*/
-backend/*_CodeRush*/
+# Build and test results
+backend/**/TestResults/
+backend/**/.ncrunch*/
+backend/**/*_ReSharper*/
+backend/**/*_CodeRush*/
+backend/**/*.dotCover
+
+# User-specific project files
+backend/**/*.csproj.user
+backend/**/*.csproj.DotSettings
+
+# Launch settings (may contain local URLs)
+backend/**/Properties/launchSettings.json
 
 # ==========================
 # Angular Frontend
 # ==========================
-elearning-platform-frontend/node_modules/
-elearning-platform-frontend/dist/
-elearning-platform-frontend/tmp/
-elearning-platform-frontend/.angular/
-elearning-platform-frontend/.nx/
-elearning-platform-frontend/.env
-elearning-platform-frontend/.env.*
-elearning-platform-frontend/*.code-workspace
-elearning-platform-frontend/.idea/
-# Mac/Linux temp files
-elearning-platform-frontend/.DS_Store
-elearning-platform-frontend/Thumbs.db
-# VS Code settings
-elearning-platform-frontend/.vscode/
-# Local coverage reports
-elearning-platform-frontend/coverage/
-# Angular Environment
-elearning-platform-frontend/src/environments/environment.*.ts
+frontend/node_modules/
+frontend/dist/
+frontend/tmp/
+frontend/.angular/
+frontend/.nx/
+frontend/.env
+frontend/.env.*
+frontend/*.code-workspace
+frontend/.idea/
+frontend/.vscode/
+frontend/coverage/
+# Angular Environment files with sensitive data
+frontend/src/environments/environment.*.ts
+# OS temp files
+frontend/.DS_Store
+frontend/Thumbs.db
 
 # ==========================
 # Database and Misc
