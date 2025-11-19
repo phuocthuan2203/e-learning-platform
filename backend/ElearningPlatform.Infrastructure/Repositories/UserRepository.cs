@@ -29,4 +29,16 @@ public class UserRepository : IUserRepository
     {
         return await _context.Users.ToListAsync();
     }
+
+    public async Task<User?> GetByEmailAsync(string email)
+    {
+        // EF Core TPT will automatically join tables to get the correct runtime type (Student/Instructor)
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
+
+    public Task UpdateAsync(User user)
+    {
+        _context.Users.Update(user);
+        return _context.SaveChangesAsync();
+    }
 }
