@@ -31,6 +31,10 @@
         <button mat-flat-button color="primary" type="submit" [disabled]="profileForm.invalid || profileForm.pristine" class="full-width">
           Save Changes
         </button>
+
+        <button mat-button color="warn" routerLink="/auth/change-password" type="button" class="full-width" style="margin-top: 10px;">
+          Change Password
+        </button>
       </form>
     </mat-card-content>
   </mat-card>

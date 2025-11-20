@@ -17,13 +17,15 @@ import { AuthRoutingModule } from './auth-routing-module';
 import { Register } from './register/register';
 import { Login } from './login/login';
 import { ProfileComponent } from './profile/profile';
+import { ChangePassword } from './change-password/change-password';
 
 
 @NgModule({
   declarations: [
     Register,
     Login,
-    ProfileComponent
+    ProfileComponent,
+    ChangePassword
   ],
   imports: [
     CommonModule,

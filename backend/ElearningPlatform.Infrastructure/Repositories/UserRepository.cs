@@ -25,11 +25,6 @@ public class UserRepository : IUserRepository
         return await _context.Users.AnyAsync(u => u.Email == email);
     }
 
-    public async Task<IEnumerable<User>> GetAllUsersAsync()
-    {
-        return await _context.Users.ToListAsync();
-    }
-
     public async Task<User?> GetByEmailAsync(string email)
     {
         // EF Core TPT will automatically join tables to get the correct runtime type (Student/Instructor)
