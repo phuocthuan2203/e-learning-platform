@@ -1,0 +1,81 @@
+<div class="detail-container">
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <!-- Course Details -->
+  <div *ngIf="!isLoading && course" class="course-detail">
+    <!-- Back Button -->
+    <button mat-button (click)="goBack()" class="back-button">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Catalog
+    </button>
+
+    <!-- Course Header -->
+    <mat-card class="course-header-card">
+      <div class="header-content">
+        <div class="header-text">
+          <h1>{{ course.title }}</h1>
+          <p class="instructor">
+            <mat-icon>person</mat-icon>
+            {{ course.instructorName }}
+          </p>
+          <p class="date">
+            <mat-icon>calendar_today</mat-icon>
+            {{ formatDate(course.createdDate) }}
+          </p>
+        </div>
+        <img
+          *ngIf="course.imageUrl"
+          [src]="course.imageUrl"
+          [alt]="course.title"
+          class="course-header-image"
+        />
+      </div>
+      <mat-card-content>
+        <h2>About this course</h2>
+        <p class="description">{{ course.description }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Course Curriculum -->
+    <div class="curriculum-section">
+      <h2>Course Curriculum</h2>
+      <p class="curriculum-subtitle">
+        {{ course.modules.length }} module(s) • 
+        {{ getTotalLessons() }} lesson(s)
+      </p>
+
+      <mat-accordion multi>
+        <mat-expansion-panel *ngFor="let module of course.modules">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span class="module-order">Module {{ module.order }}</span>
+              <span class="module-title">{{ module.title }}</span>
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ module.lessons.length }} lesson(s)
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-list>
+            <mat-list-item *ngFor="let lesson of module.lessons">
+              <mat-icon matListItemIcon>
+                {{ lesson.externalVideoUrl ? 'play_circle' : 'description' }}
+              </mat-icon>
+              <div matListItemTitle>{{ lesson.title }}</div>
+              <div matListItemLine *ngIf="lesson.textContent" class="lesson-preview">
+                {{ lesson.textContent | slice:0:100 }}{{ lesson.textContent.length > 100 ? '...' : '' }}
+              </div>
+              <div matListItemLine *ngIf="lesson.externalVideoUrl" class="video-indicator">
+                <mat-icon class="small-icon">videocam</mat-icon>
+                Video content available
+              </div>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
