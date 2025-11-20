@@ -18,6 +18,7 @@ import { Register } from './register/register';
 import { Login } from './login/login';
 import { ProfileComponent } from './profile/profile';
 import { ChangePassword } from './change-password/change-password';
+import { Dashboard } from './dashboard/dashboard';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ChangePassword } from './change-password/change-password';
     Register,
     Login,
     ProfileComponent,
-    ChangePassword
+    ChangePassword,
+    Dashboard
   ],
   imports: [
     CommonModule,

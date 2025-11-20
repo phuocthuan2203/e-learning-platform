@@ -43,7 +43,7 @@ export class ChangePassword {
         next: () => {
           this.isLoading = false;
           this.snackBar.open('Password changed successfully!', 'Close', { duration: 3000 });
-          this.router.navigate(['/auth/profile']);
+          this.router.navigate(['/auth/dashboard']);
         },
         error: (err) => {
           this.isLoading = false;

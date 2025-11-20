@@ -34,8 +34,7 @@ export class Register {
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
           this.snackBar.open('Registration successful!', 'Close', { duration: 3000 });
-          // Navigate to dashboard (placeholder for now)
-          this.router.navigate(['/']);
+          this.router.navigate(['/auth/dashboard']);
         },
         error: (error) => {
           this.isLoading = false;
