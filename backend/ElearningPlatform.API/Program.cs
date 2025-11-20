@@ -29,6 +29,8 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>();
 
 // Configure and register the DbContext for Entity Framework Core
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
