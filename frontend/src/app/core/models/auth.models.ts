@@ -30,3 +30,9 @@ export interface UpdateProfileRequest {
   name: string;
   bio?: string;
 }
+
+export interface ChangePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}

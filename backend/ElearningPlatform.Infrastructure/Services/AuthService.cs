@@ -194,4 +194,25 @@ public class AuthService : IAuthService
             Role = user is Student ? "Student" : "Instructor"
         };
     }
+
+    public async Task ChangePasswordAsync(int userId, ChangePasswordDto dto)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        if (user == null) throw new KeyNotFoundException("User not found");
+
+        // 1. Verify Current Password
+        if (!BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, user.PasswordHash))
+        {
+            throw new InvalidCredentialsException(); // Reuse existing exception
+        }
+
+        // 2. Hash New Password
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+        
+        // 3. Update Audit Trail
+        user.LastModifiedDate = DateTime.UtcNow;
+
+        // 4. Save
+        await _userRepository.UpdateAsync(user);
+    }
 }

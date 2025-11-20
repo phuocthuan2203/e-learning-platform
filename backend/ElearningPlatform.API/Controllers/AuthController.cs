@@ -83,4 +83,25 @@ public class AuthController : ControllerBase
         var updatedProfile = await _authService.UpdateUserProfileAsync(userId, dto);
         return Ok(updatedProfile);
     }
+
+    [HttpPut("password")]
+    [Authorize]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier) ?? User.FindFirst("sub");
+        if (userIdClaim == null || !int.TryParse(userIdClaim.Value, out int userId))
+        {
+            return Unauthorized();
+        }
+
+        try
+        {
+            await _authService.ChangePasswordAsync(userId, dto);
+            return Ok(new { message = "Password changed successfully" });
+        }
+        catch (InvalidCredentialsException)
+        {
+            return BadRequest(new { message = "Current password is incorrect" });
+        }
+    }
 }
