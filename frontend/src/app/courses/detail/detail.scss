@@ -1,0 +1,172 @@
+.detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.back-button {
+  margin-bottom: 1rem;
+  
+  mat-icon {
+    margin-right: 0.5rem;
+  }
+}
+
+.course-header-card {
+  margin-bottom: 2rem;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    .header-text {
+      flex: 1;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .instructor,
+      .date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+
+        mat-icon {
+          font-size: 1.2rem;
+          width: 1.2rem;
+          height: 1.2rem;
+        }
+      }
+    }
+
+    .course-header-image {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  mat-card-content {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .description {
+      color: #555;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+  }
+}
+
+.curriculum-section {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .curriculum-subtitle {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  mat-accordion {
+    mat-expansion-panel {
+      margin-bottom: 1rem;
+
+      mat-expansion-panel-header {
+        mat-panel-title {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .module-order {
+            background-color: #3f51b5;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 500;
+          }
+
+          .module-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+          }
+        }
+
+        mat-panel-description {
+          color: #666;
+        }
+      }
+
+      mat-list {
+        padding: 0;
+
+        mat-list-item {
+          border-bottom: 1px solid #eee;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          mat-icon {
+            color: #3f51b5;
+          }
+
+          .lesson-preview {
+            color: #666;
+            font-size: 0.9rem;
+          }
+
+          .video-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #ff5722;
+            font-size: 0.9rem;
+
+            .small-icon {
+              font-size: 1rem;
+              width: 1rem;
+              height: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .course-header-card {
+    .header-content {
+      flex-direction: column;
+
+      .course-header-image {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
+}
