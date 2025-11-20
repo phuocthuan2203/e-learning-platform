@@ -1,40 +1,63 @@
-<div class="auth-container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>My Profile ({{ role }})</mat-card-title>
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <mat-card-header class="profile-header">
+      <div mat-card-avatar class="profile-avatar">
+        <mat-icon>account_circle</mat-icon>
+      </div>
+      <mat-card-title>My Profile</mat-card-title>
+      <mat-card-subtitle>
+        <span class="role-chip">{{ role }}</span>
+      </mat-card-subtitle>
     </mat-card-header>
+    
     <mat-card-content>
-      <div *ngIf="isLoading" class="loading-shade">Loading...</div>
+      <div *ngIf="isLoading" class="loading-shade">
+        <mat-spinner diameter="50"></mat-spinner>
+        <p>Loading your profile...</p>
+      </div>
       
       <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
         
         <!-- Email (Read Only) -->
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label>Email Address</mat-label>
           <input matInput formControlName="email">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-hint>This cannot be changed</mat-hint>
         </mat-form-field>
 
         <!-- Name -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Full Name</mat-label>
           <input matInput formControlName="name">
+          <mat-icon matPrefix>person</mat-icon>
           <mat-error *ngIf="profileForm.get('name')?.hasError('required')">Name is required</mat-error>
         </mat-form-field>
 
         <!-- Bio -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Bio</mat-label>
-          <textarea matInput formControlName="bio" rows="3"></textarea>
+        <mat-form-field appearance="outline" class="full-width bio-field">
+          <mat-label>About Me</mat-label>
+          <textarea matInput formControlName="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+          <mat-icon matPrefix>description</mat-icon>
           <mat-hint align="end">{{profileForm.get('bio')?.value?.length || 0}}/500</mat-hint>
         </mat-form-field>
 
-        <button mat-flat-button color="primary" type="submit" [disabled]="profileForm.invalid || profileForm.pristine" class="full-width">
-          Save Changes
-        </button>
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid || profileForm.pristine">
+            <mat-icon>save</mat-icon>
+            Save Changes
+          </button>
 
-        <button mat-button color="warn" routerLink="/auth/change-password" type="button" class="full-width" style="margin-top: 10px;">
-          Change Password
-        </button>
+          <button mat-stroked-button color="accent" routerLink="/auth/change-password" type="button">
+            <mat-icon>lock</mat-icon>
+            Change Password
+          </button>
+
+          <button mat-stroked-button routerLink="/auth/dashboard" type="button">
+            <mat-icon>dashboard</mat-icon>
+            Back to Dashboard
+          </button>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>

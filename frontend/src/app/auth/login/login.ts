@@ -32,7 +32,7 @@ export class Login {
       this.authService.login(this.loginForm.value).subscribe({
         next: () => {
           this.snackBar.open('Login successful!', 'Close', { duration: 3000 });
-          this.router.navigate(['/']); // Will redirect to dashboard later
+          this.router.navigate(['/auth/dashboard']);
         },
         error: (error) => {
           this.isLoading = false;
